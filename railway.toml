@@ -1,0 +1,11 @@
+[deploy]
+startCommand = "/bin/bash -c \"/bin/ttyd -p $PORT -c $USERNAME:$PASSWORD /bin/bash\""
+numReplicas = 1
+
+[deploy.resources]
+memoryMb = 1024
+vcpus = 2
+
+[[volumes]]
+mountPath = "/root"
+name = "kali-data"
