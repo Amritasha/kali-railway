@@ -3,7 +3,7 @@
 
 # Deploy and Host Kali Linux Terminal on Railway
 
-Kali Linux Terminal is a browser-accessible Kali Linux shell deployed on Railway via [ttyd](https://github.com/tsl0922/ttyd). Security tools in your browser — no local VM, no lengthy setup. Comes with popular pentesting and CTF tools pre-installed, password-protected access, and persistent storage at `/root` that survives restarts.
+Kali Linux Terminal is a browser-accessible Kali Linux Rolling shell deployed on Railway via [ttyd](https://github.com/tsl0922/ttyd). Pre-loaded with popular pentesting and CTF tools, common C/system dev libraries, password-protected access, and persistent storage at `/root` that survives restarts. No local VM required.
 
 > ⚠️ **Legal Notice:** Use only on systems you own or have explicit written permission to test. Unauthorized use is illegal.
 
@@ -11,23 +11,23 @@ Kali Linux Terminal is a browser-accessible Kali Linux shell deployed on Railway
 
 ## About Hosting Kali Linux Terminal
 
-Hosting Kali Linux Terminal on Railway means spinning up a Kali Linux Rolling container with a browser-based terminal exposed via ttyd. Kali Rolling always pulls the latest packages from Kali's repositories, keeping your tools up to date. Railway handles the build, networking, and SSL automatically. You provide a username and password via environment variables, and Railway injects the `PORT` env var for ttyd to bind to. A persistent volume is mounted at `/root` so your wordlists, notes, and scripts survive restarts.
+Hosting Kali Linux Terminal on Railway means spinning up a Kali Linux Rolling container with a browser-based terminal exposed via ttyd. Kali Rolling always pulls the latest packages from Kali's repositories, keeping your security tools up to date on every redeploy. The image ships with a broad set of pentesting tools as well as commonly used C libraries — libssl-dev, zlib1g-dev, libffi-dev, libsqlite3-dev, libreadline-dev, libncurses5-dev, libxml2-dev, libxslt1-dev, libpq-dev, libmysqlclient-dev, libyaml-dev, libpng-dev, libjpeg-dev, and linux-headers — so language runtimes and native extensions compile without extra setup. A persistent volume is mounted at `/root` so your wordlists, scripts, and notes survive restarts.
 
 ## Common Use Cases
 
 - CTF (Capture The Flag) challenges from any browser without a local Kali install
 - Penetration testing practice against your own lab or authorized targets
-- Learning ethical hacking and security tooling in a disposable, cloud-hosted environment
+- Security research and tool experimentation in a disposable, cloud-hosted environment
 
 ## Dependencies for Kali Linux Terminal Hosting
 
 - [ttyd](https://github.com/tsl0922/ttyd) — browser-based terminal emulator that serves the shell over HTTP
-- [Kali Linux Rolling](https://www.kali.org/) — Debian-based security-focused base image
+- [Kali Linux Rolling](https://www.kali.org/) — Debian-based security-focused distribution with a large offensive toolset
 
 ### Deployment Dependencies
 
-- [ttyd releases (x86_64 binary)](https://github.com/tsl0922/ttyd/releases/tag/1.7.3)
-- [Kali Linux Docker Hub](https://hub.docker.com/r/kalilinux/kali-rolling)
+- [ttyd 1.7.3 x86_64 binary](https://github.com/tsl0922/ttyd/releases/tag/1.7.3)
+- [Kali Linux on Docker Hub](https://hub.docker.com/r/kalilinux/kali-rolling)
 - [Railway Volumes documentation](https://docs.railway.app/reference/volumes)
 
 ## Environment Variables
@@ -53,6 +53,7 @@ Hosting Kali Linux Terminal on Railway means spinning up a Kali Linux Rolling co
 | Network | ifconfig, ip, ping, dig, openssh-client, telnet, netcat |
 | Data | jq |
 | General | sudo, python3, pip, git, curl, wget, neofetch |
+| Libraries | libssl-dev, zlib1g-dev, libffi-dev, libsqlite3-dev, libreadline-dev, libncurses5-dev, libxml2-dev, libxslt1-dev, libpq-dev, default-libmysqlclient-dev, libyaml-dev, libpng-dev, libjpeg-dev, linux-headers-amd64 |
 
 ## Installing More Kali Tools
 
