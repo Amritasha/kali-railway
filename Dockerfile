@@ -21,7 +21,7 @@ RUN apt-get update && \
         libxml2-dev libxslt1-dev \
         libpq-dev default-libmysqlclient-dev \
         libyaml-dev libpng-dev libjpeg-dev \
-        linux-headers-amd64 && \
+        linux-libc-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN wget -qO /bin/ttyd https://github.com/tsl0922/ttyd/releases/download/1.7.3/ttyd.x86_64 && \
